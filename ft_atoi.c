@@ -6,7 +6,7 @@
 /*   By: aberrahm <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/22 23:29:29 by aberrahm          #+#    #+#             */
-/*   Updated: 2016/12/28 02:44:03 by aberrahm         ###   ########.fr       */
+/*   Updated: 2016/12/28 18:41:51 by aberrahm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,7 @@ int		ft_atoi(const char *str)
 	}
 	while (str[i] >= '0' && str[i] <= '9')
 	{
-		sum = sum * 10;
-		sum = sum + str[i] - '0';
+		sum = ((sum * 10) + (str[i] - '0'));
 		i++;
 	}
 	if (n == 1)

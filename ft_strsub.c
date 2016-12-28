@@ -6,7 +6,7 @@
 /*   By: aberrahm <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/19 17:00:02 by aberrahm          #+#    #+#             */
-/*   Updated: 2016/12/27 16:54:35 by aberrahm         ###   ########.fr       */
+/*   Updated: 2016/12/28 20:03:48 by aberrahm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,5 +26,6 @@ char	*ft_strsub(char const *s, unsigned int start, size_t len)
 		start++;
 		i++;
 	}
+	s1[i] = '\0';
 	return (s1);
 }

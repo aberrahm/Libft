@@ -6,7 +6,7 @@
 /*   By: aberrahm <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/11 03:11:03 by aberrahm          #+#    #+#             */
-/*   Updated: 2016/12/27 20:11:01 by aberrahm         ###   ########.fr       */
+/*   Updated: 2016/12/28 19:59:33 by aberrahm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ char	*ft_strstr(const char *big, const char *little)
 			p++;
 			i++;
 		}
+		return (&little1[i]);
 	}
-	return (&little1[i]);
+	return (NULL);
 }

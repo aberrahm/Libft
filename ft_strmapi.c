@@ -6,7 +6,7 @@
 /*   By: aberrahm <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/19 15:57:05 by aberrahm          #+#    #+#             */
-/*   Updated: 2016/12/28 01:29:13 by aberrahm         ###   ########.fr       */
+/*   Updated: 2016/12/28 20:03:08 by aberrahm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,5 +29,6 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 		s2[c] = f(c, str[c]);
 		c++;
 	}
+	s2[c] = '\0';
 	return (s2);
 }

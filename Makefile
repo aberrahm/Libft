@@ -1,5 +1,7 @@
 NAME = libft.a
 
+CC = clang
+
 SRC = ft_atoi.c \
 	   ft_bzero.c \
 	   ft_memcpy.c \
@@ -53,6 +55,8 @@ SRC = ft_atoi.c \
 	   ft_putnbr_fd.c \
 	   ft_countword.c \
 	   ft_strlcat.c
+
+OBJS = $(SRC:%.c=%.o)
 
 OBJT = ft_atoi.o \
 	   ft_bzero.o \
@@ -110,15 +114,20 @@ OBJT = ft_atoi.o \
 
 all : $(NAME)
 
-$(NAME) :
-	gcc -c $(SRC) -I libft.h
-	ar rc $(NAME) $(OBJT)
+$(NAME): $(OBJS)
+	ar rc $(NAME) $(OBJS)
 	ranlib $(NAME)
 
+%.o: %.c
+	$(CC) -c $<
+
 clean :
-	rm -f $(OBJT)
+	rm -f $(OBJS)
 
 fclean : clean
 	rm -f $(NAME)
 
 re : fclean all
+
+test:
+	@echo $(OBJS)
