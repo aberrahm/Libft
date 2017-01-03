@@ -1,32 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_createtab.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aberrahm <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/12/23 04:32:24 by aberrahm          #+#    #+#             */
-/*   Updated: 2016/12/30 03:37:02 by aberrahm         ###   ########.fr       */
+/*   Created: 2016/12/31 05:02:15 by aberrahm          #+#    #+#             */
+/*   Updated: 2016/12/31 05:18:08 by aberrahm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putnbr_fd(int n, int fd)
+char	**ft_createtab(int cl, int lg)
 {
-	unsigned int	nbr;
+	char	**dest;
 
-	nbr = 0;
-	if (n < 0)
+	if (!(dest = (char **)malloc(sizeof(char *) * (lg + 1))))
+		return (NULL);
+	while (lg >= 0)
 	{
-		ft_putchar_fd('-', fd);
+		if (!(dest[lg] = (char *)malloc(sizeof(char) * (cl + 1))))
+			return (NULL);
+		ft_memset(dest[lg], '\0', cl + 1);
+		lg--;
 	}
-	nbr = (n < 0 ? -n : n);
-	if (nbr >= 10)
-	{
-		ft_putnbr_fd(nbr / 10, fd);
-		ft_putnbr_fd(nbr % 10, fd);
-	}
-	else
-		ft_putchar_fd(nbr + '0', fd);
+	return (dest);
 }

@@ -1,32 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aberrahm <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/12/23 04:32:24 by aberrahm          #+#    #+#             */
-/*   Updated: 2016/12/30 03:37:02 by aberrahm         ###   ########.fr       */
+/*   Created: 2016/12/31 01:21:04 by aberrahm          #+#    #+#             */
+/*   Updated: 2016/12/31 03:15:29 by aberrahm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putnbr_fd(int n, int fd)
+t_list	*ft_lstnew(void const *content, size_t content_size)
 {
-	unsigned int	nbr;
+	t_list	*new;
 
-	nbr = 0;
-	if (n < 0)
+	if (!(new = malloc(sizeof(*new))))
+		return (NULL);
+	if (content == NULL)
 	{
-		ft_putchar_fd('-', fd);
-	}
-	nbr = (n < 0 ? -n : n);
-	if (nbr >= 10)
-	{
-		ft_putnbr_fd(nbr / 10, fd);
-		ft_putnbr_fd(nbr % 10, fd);
+		new->content = NULL;
+		new->content_size = 0;
 	}
 	else
-		ft_putchar_fd(nbr + '0', fd);
+	{
+		if (!(new->content = (void *)malloc(content_size)))
+			return (NULL);
+		ft_memcpy(new->content, content, content_size);
+		new->content_size = content_size;
+	}
+	new->next = NULL;
+	return (new);
 }

@@ -6,7 +6,7 @@
 /*   By: aberrahm <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/18 04:28:09 by aberrahm          #+#    #+#             */
-/*   Updated: 2016/12/23 05:27:08 by aberrahm         ###   ########.fr       */
+/*   Updated: 2016/12/30 06:29:11 by aberrahm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ void	ft_striter(char *s, void (*f)(char *))
 	int		size;
 	int		c;
 
+	if (!s || !f)
+		return ;
 	size = ft_strlen(s);
 	c = 0;
 	while (c < size)

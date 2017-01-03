@@ -6,7 +6,7 @@
 /*   By: aberrahm <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/18 05:09:07 by aberrahm          #+#    #+#             */
-/*   Updated: 2016/12/27 19:47:40 by aberrahm         ###   ########.fr       */
+/*   Updated: 2016/12/30 06:29:56 by aberrahm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,10 @@ void	ft_striteri(char *s, void (*f)(unsigned int, char *))
 	size_t		size;
 	size_t		c;
 
-	size = ft_strlen(s);
-	c = 0;
 	if (!s || !f)
 		return ;
+	size = ft_strlen(s);
+	c = 0;
 	while (c < size)
 	{
 		f(c, &s[c]);

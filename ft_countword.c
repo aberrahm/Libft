@@ -6,7 +6,7 @@
 /*   By: aberrahm <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/28 01:32:30 by aberrahm          #+#    #+#             */
-/*   Updated: 2016/12/28 01:38:10 by aberrahm         ###   ########.fr       */
+/*   Updated: 2016/12/30 04:13:55 by aberrahm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,11 @@ int	ft_countword(char const *str, char c)
 	word = 0;
 	while (str[i] != '\0')
 	{
-		while (str[i] == c)
+		while (str[i] == c && str[i])
 			i++;
-		if (str[i] != c)
+		if (str[i] != c && str[i])
 		{
-			while (str[i] != c)
+			while (str[i] != c && str[i])
 				i++;
 			word++;
 		}

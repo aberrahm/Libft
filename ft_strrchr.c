@@ -6,7 +6,7 @@
 /*   By: aberrahm <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/11 02:23:26 by aberrahm          #+#    #+#             */
-/*   Updated: 2016/12/28 20:21:47 by aberrahm         ###   ########.fr       */
+/*   Updated: 2016/12/30 07:27:38 by aberrahm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 char	*ft_strrchr(const char *s, int c)
 {
 	size_t	p;
-	size_t	i;
-	char 	*s1;
+	char	i;
+	char	*s1;
 
 	s1 = (char *)s;
 	i = (char)c;

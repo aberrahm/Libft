@@ -6,52 +6,58 @@
 /*   By: aberrahm <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/23 02:21:08 by aberrahm          #+#    #+#             */
-/*   Updated: 2016/12/28 20:45:01 by aberrahm         ###   ########.fr       */
+/*   Updated: 2016/12/30 06:22:46 by aberrahm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static char		*ft_putnbr_in_tab(int n, int n1, int s)
+static char		*ft_putnbr_in_tab(int n, int cpy, int signe)
 {
 	char	*stock;
 
-	if (!(stock = (char *)malloc(sizeof(char) * (n1))))
+	if (!(stock = (char *)malloc(sizeof(char) * (cpy + 1))))
 		return (NULL);
-	stock[n1] = '\0';
-	n1--;
+	if (n == 0)
+	{
+		stock[0] = '0';
+		stock[1] = '\0';
+	}
+	else
+		stock[cpy] = '\0';
+	cpy--;
 	while (n != 0)
 	{
-		stock[n1] = n % 10 + '0';
+		stock[cpy] = n % 10 + '0';
 		n = n / 10;
-		n1--;
+		cpy--;
 	}
-	if (s == 1)
+	if (signe == 1)
 		stock[0] = '-';
 	return (stock);
 }
 
 char			*ft_itoa(int n)
 {
-	int		i;
-	int		s;
-	int		n1;
+	int			i;
+	int			signe;
+	int			cpy;
 
 	i = 0;
-	s = 0;
+	signe = 0;
 	if (n == -2147483648)
 		return (ft_strdup("-2147483648"));
 	if (n < 0)
 	{
-		s = 1;
+		signe = 1;
 		n = -n;
 	}
-	n1 = n;
-	while (n1 != 0)
+	cpy = n;
+	while (cpy != 0)
 	{
-		n1 = n1 / 10;
+		cpy = cpy / 10;
 		i++;
 	}
-	n1 = i + s + 1;
-	return (ft_putnbr_in_tab(n, n1, s));
+	cpy = (n == 0 ? 1 : i + signe);
+	return (ft_putnbr_in_tab(n, cpy, signe));
 }

@@ -6,7 +6,7 @@
 /*   By: aberrahm <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/19 15:57:05 by aberrahm          #+#    #+#             */
-/*   Updated: 2016/12/28 20:03:08 by aberrahm         ###   ########.fr       */
+/*   Updated: 2016/12/30 06:31:19 by aberrahm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	size_t	c;
 	char	*s2;
 
+	if (!s || !f)
+		return (NULL);
 	str = (char *)s;
 	size = ft_strlen(str);
 	c = 0;
