@@ -10,24 +10,27 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include "libft.h"
 
-static char	*strndup(const char *s1, size_t n)
+char	*ft_strndup(const char *s1, size_t n)
 {
-	int		i;
-	char	*s2;
-	int		len;
+	size_t		i;
+	char		*s2;
+	size_t		len;
+	char		*s3;
 
+	s3 = (char *)s1;
 	i = 0;
 	len = 0;
-	while ((s1[len] != '\0') && (len < n))
+	while ((s3[len] != '\0') && (len < n))
 		len++;
-	s2 = (char *)malloc(sizeof(*s1) * (len + 1));
-	while ((s1[i] != '\0') && (i < n))
+	if (!(s2 = (char *)malloc(sizeof(*s3) * (len + 1))))
+		return (NULL);
+	while ((s3[i] != '\0') && (i < n))
 	{
-		s2[i] = s1[i];
+		s2[i] = s3[i];
 		i++;
 	}
-	s2[i] != '\0';
+	s2[i] = '\0';
 	return (s2);
 }

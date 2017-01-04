@@ -73,6 +73,7 @@ void			ft_putnbr_fd(int n, int fd);
 int				ft_sqrt(int nb);
 char			**ft_createtab(int cl, int lg);
 void			ft_swap(int	*a, int	*b);
+char			*ft_strndup(const char *s1, size_t n);
 
 typedef struct	s_list
 {
