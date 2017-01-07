@@ -64,7 +64,8 @@ SRC = ft_atoi.c \
 	   ft_sqrt.c \
 	   ft_createtab.c \
 	   ft_swap.c \
-	   ft_strndup.c
+	   ft_strndup.c \
+	   ft_lstpush_back.c
 
 OBJT = $(SRC:%.c=%.o)
 
