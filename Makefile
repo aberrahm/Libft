@@ -62,7 +62,7 @@ SRC = ft_atoi.c \
 	   ft_sqrt.c \
 	   ft_createtab.c \
 	   ft_swap.c \
-ft_strndup.c
+	   ft_strndup.c
 
 OBJT = $(SRC:%.c=%.o)
 
@@ -81,3 +81,5 @@ fclean : clean
 	rm -f $(NAME)
 
 re : fclean all
+
+.PHONY : all clean fclean re
