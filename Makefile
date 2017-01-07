@@ -1,5 +1,7 @@
 NAME = libft.a
 
+FLAGS = -Wall -Werror -Wextra -Wvla
+
 SRC = ft_atoi.c \
 	   ft_bzero.c \
 	   ft_memcpy.c \
@@ -68,11 +70,12 @@ OBJT = $(SRC:%.c=%.o)
 
 all : $(NAME)
 
-$(NAME) :
-	gcc -c $(SRC) -Wall -Wextra -Werror -I libft.h
+$(NAME): $(OBJT)
 	ar rc $(NAME) $(OBJT)
 	ranlib $(NAME)
-%.o : %.c
+
+%.o: %.c
+	gcc $(FLAGS) -c $<
 
 clean :
 	rm -f $(OBJT)
