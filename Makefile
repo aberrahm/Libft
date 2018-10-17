@@ -1,6 +1,22 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: alicia <alicia@student.42.fr>              +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2018/10/17 16:36:02 by alicia            #+#    #+#              #
+#    Updated: 2018/10/17 16:41:09 by alicia           ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 NAME = libft.a
 
+INC_DIR = includes
+
 FLAGS = -Wall -Werror -Wextra -Wvla
+INC = $(INC_DIR:%=-I ./%)
+CC = clang $(FLAGS) $(INC)
 
 SRC = ft_atoi.c \
 	   ft_bzero.c \
@@ -66,19 +82,19 @@ SRC = ft_atoi.c \
 	   ft_swap.c \
 	   ft_strndup.c
 
-OBJT = $(SRC:%.c=%.o)
+OBJ = $(SRC:%.c=%.o)
 
 all : $(NAME)
 
-$(NAME): $(OBJT)
-	ar rc $(NAME) $(OBJT)
+$(NAME): $(OBJ)
+	ar rc $(NAME) $(OBJ)
 	ranlib $(NAME)
 
 %.o: %.c
 	gcc $(FLAGS) -c $<
 
 clean :
-	rm -f $(OBJT)
+	rm -f $(OBJ)
 
 fclean : clean
 	rm -f $(NAME)
